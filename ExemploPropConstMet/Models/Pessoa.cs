@@ -24,6 +24,12 @@ o vazio seria para passar os valores depois , como é o caso do exemplo em Progr
             Idade = idade;
         }
 
+        public void Deconstruct(out string nome, out string sobrenome , out int idade){
+            nome = Nome;
+            sobrenome = Sobrenome;
+            idade = Idade;
+        }
+
         private string _nome;
         private int _idade;
 

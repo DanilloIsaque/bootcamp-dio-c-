@@ -143,3 +143,53 @@ if(estados.ContainsKey("BA")){
 
 //acessar o valor
  Console.WriteLine(estados["MG"]);
+
+
+Console.WriteLine("");
+Console.WriteLine("");
+Console.WriteLine("Tupla"); //alternativa para quando não quer criar uma classe
+
+(int, string, string) tupla = (1, "Danillo" , "Isaque");
+(int Id, string Nome, string Sobrenome) tupla2 = (2, "Daniel" ,"Santos");
+var outroExemplo = Tuple.Create(3,"Carla","Silva");
+
+Console.WriteLine("Id: " + tupla.Item1);
+Console.WriteLine("Nome: " + tupla.Item2);
+Console.WriteLine("Sobrenome: " + tupla.Item3);
+
+Console.WriteLine("Id: " + tupla2.Id);
+Console.WriteLine("Nome: " + tupla2.Nome);
+Console.WriteLine("Sobrenome: " + tupla2.Sobrenome);
+
+Console.WriteLine("");
+Console.WriteLine("");
+Console.WriteLine("Método Tupla");
+
+LeituraArquivo leitura = new LeituraArquivo();
+var (sucesso, linhasArquivo, qtdLinhas) = leitura.LerArquivo("Arquivos/arquivoLeitura.txt"); 
+//var (sucesso, linhasArquivo, _)leitura.LerArquivo("Arquivos/arquivoLeitura.txt"); trazer , mas não usar essa parte com underline
+
+if(sucesso){
+    Console.WriteLine($"Quantidade de linhas : {qtdLinhas}");
+    foreach(string linha in linhasArquivo){
+        Console.WriteLine(linha);
+    }
+
+}else{
+    Console.WriteLine("Não foi possível ler o arquivo.");
+}
+
+Pessoa p5 = new Pessoa("Hugo", "Souza", 25);
+(string nomeP5, string sobrenomeP5, int idadeP5) = p5;
+Console.WriteLine($"{nomeP5} {sobrenomeP5}");
+
+Console.WriteLine("");
+Console.WriteLine("");
+Console.WriteLine("Ternário");
+
+
+int numeroooo = 5;
+bool ehPar = false;
+
+ehPar = numeroooo % 2 == 0 ;
+Console.WriteLine($"o número {numeroooo} é " + (ehPar ? "par": "ímpar"));
