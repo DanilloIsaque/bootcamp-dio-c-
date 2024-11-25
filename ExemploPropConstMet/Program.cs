@@ -1,5 +1,7 @@
-﻿using ExemploPropConstMet.Models;
+﻿using System;
+using ExemploPropConstMet.Models;
 using System.Globalization;
+using Newtonsoft.Json;
 
 Pessoa p1 = new Pessoa();
 p1.Nome = "Fulano";
@@ -193,3 +195,44 @@ bool ehPar = false;
 
 ehPar = numeroooo % 2 == 0 ;
 Console.WriteLine($"o número {numeroooo} é " + (ehPar ? "par": "ímpar"));
+
+
+
+Console.WriteLine("");
+Console.WriteLine("");
+Console.WriteLine("Serializando JSON");
+
+// a biblioteca newtonssoft já serializa e deserializa esses objetos
+List<Venda> listaVendas = new List<Venda>();
+
+DateTime dataAtual = DateTime.Now; // ISO 8601
+
+Venda v1 = new Venda(1,"Carrinho", 15.20M, dataAtual);
+Venda v2 = new Venda(2,"Bola", 20.00M, dataAtual);
+
+listaVendas.Add(v1);
+listaVendas.Add(v2);
+
+
+//string serializado = JsonConvert.SerializeObject(v1,Formatting.Indented);
+
+string serializado = JsonConvert.SerializeObject(listaVendas,Formatting.Indented);
+
+
+File.WriteAllText("Arquivos/vendas.json",serializado);// cria o arquivo e coloca lá
+
+Console.WriteLine(serializado);
+
+
+Console.WriteLine("");
+Console.WriteLine("");
+Console.WriteLine("Deserializando JSON");// transformar de volta para objeto Venda
+
+string conteudoArquivo = File.ReadAllText("Arquivos/vendas.json");
+
+List<Venda> listaVendasDeserializadas = JsonConvert.DeserializeObject<List<Venda>>(conteudoArquivo);
+
+foreach (Venda item in listaVendasDeserializadas)
+{
+    Console.WriteLine($"{item.Id}  , {item.Produto} , {item.Preco}  , {item.DataVenda.ToString("dd/MM/yyyy")}");
+}
