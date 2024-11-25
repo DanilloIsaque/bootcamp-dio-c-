@@ -1,0 +1,14 @@
+[
+  {
+    "Id": 1,
+    "Nome_Produto": "Carrinho",
+    "Preco": 15.20,
+    "DataVenda": "2024-11-25T02:09:05.2690035-03:00"
+  },
+  {
+    "Id": 2,
+    "Nome_Produto": "Bola",
+    "Preco": 20.00,
+    "DataVenda": "2024-11-25T02:09:05.2690035-03:00"
+  }
+]

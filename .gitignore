@@ -1,0 +1,28 @@
+# Pastas e arquivos do Visual Studio
+.vscode/
+.vs/
+bin/
+obj/
+
+# Logs e backups
+*.log
+*.bak
+*.tmp
+
+# Arquivos temporários
+*.DS_Store
+*.tmp
+*.swp
+
+# Configurações locais de usuário
+*.user
+*.suo
+
+# Pastas de pacotes e dependências
+node_modules/
+packages/
+
+# Outros arquivos desnecessários
+*.dll
+*.exe
+*.pdb
